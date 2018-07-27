@@ -17,8 +17,8 @@
 
 package org.craftercms.core.cache.impl.store;
 
-import net.sf.ehcache.statistics.FlatStatistics;
 import org.craftercms.core.cache.CacheStatistics;
+import org.ehcache.core.spi.service.StatisticsService;
 
 public class EhCacheStatistics extends CacheStatistics {
 
@@ -31,8 +31,8 @@ public class EhCacheStatistics extends CacheStatistics {
     private long cacheMissExpiredCount;
     private long cacheMissNotFoundCount;
 
-    public EhCacheStatistics(FlatStatistics stats) {
-        size = stats.getSize();
+    public EhCacheStatistics(StatisticsService stats) {
+        size = stats.getCacheStatistics("").
         localHeapSize = stats.getLocalHeapSize();
         localOffHeapSize = stats.getLocalOffHeapSize();
         localDiskSize = stats.getLocalDiskSize();

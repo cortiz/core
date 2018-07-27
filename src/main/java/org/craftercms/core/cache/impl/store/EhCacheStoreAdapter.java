@@ -16,17 +16,15 @@
  */
 package org.craftercms.core.cache.impl.store;
 
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Element;
-import net.sf.ehcache.config.CacheConfiguration;
-import net.sf.ehcache.config.Configuration;
-import net.sf.ehcache.config.ConfigurationFactory;
-import net.sf.ehcache.statistics.FlatStatistics;
+
 import org.craftercms.core.cache.CacheItem;
 import org.craftercms.core.cache.CacheStatistics;
 import org.craftercms.core.cache.impl.CacheStoreAdapter;
 import org.craftercms.core.exception.InvalidScopeException;
+import org.ehcache.Cache;
+import org.ehcache.CacheManager;
+import org.ehcache.config.CacheConfiguration;
+import org.ehcache.config.Configuration;
 
 import javax.annotation.PreDestroy;
 import java.util.Arrays;

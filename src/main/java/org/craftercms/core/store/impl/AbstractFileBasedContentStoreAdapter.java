@@ -140,12 +140,8 @@ public abstract class AbstractFileBasedContentStoreAdapter extends AbstractCache
             if (descriptorFile != null) {
                 try {
                     InputStream fileInputStream = new BufferedInputStream(descriptorFile.getInputStream());
-                    Reader fileReader = new InputStreamReader(fileInputStream, charset);
-
-                    try {
+                    try(Reader fileReader = new InputStreamReader(fileInputStream, charset)){
                         item.setDescriptorDom(createXmlReader().read(fileReader));
-                    } finally {
-                        IOUtils.closeQuietly(fileReader);
                     }
                 } catch (IOException e) {
                     throw new StoreException("Unable to open input stream for descriptor file at " + descriptorFile, e);
